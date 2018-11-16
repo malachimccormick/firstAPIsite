@@ -1,0 +1,9 @@
+
+body, html{
+    background-color: aliceblue;
+    height: 100%;
+}
+.container-fluid{
+    display: flex;
+   justify-content: center;
+}
