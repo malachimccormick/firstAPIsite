@@ -1,9 +1,38 @@
 
 body, html{
-    background-color: aliceblue;
+    background-color: whitesmoke;
     height: 100%;
+}
+.jumbotron{
+    background-image: url(../apiSite/googleView.jpg);
+     background-position: 0% 25%;
+     background-size: 100% 100%;
+     background-repeat: no-repeat;
+     color: white;
+     text-shadow: black 0.3em 0.3em 0.3em;
+     margin-bottom: 0px;
+     height: 43%;
+}
+h1{
+    margin-left:-30px;
+    margin-top: -60px;
+}
+.mapContainer{
+    display: flex;
+    justify-content: center;
+    background-color: aliceblue
+}
+#map{
+    border: 2px black;
+    height: 350px;
+    width: 50%;
 }
 .container-fluid{
     display: flex;
-   justify-content: center;
+    justify-content: center;
+    background-color:#94A9BE;
+    color: white;
+    text-shadow: rgb(73, 72, 72) 0.3em 0.3em 0.3em;
+    font-size: x-small;
 }
+
