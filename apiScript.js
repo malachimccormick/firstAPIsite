@@ -3,8 +3,8 @@
 
 function ipAddress(data) {
     $.get('http://ip-api.com/json', function (data) {
-
-
+        ipAddress = data.query
+    $(".ipAddress").html(ipAddress).hide().show(600)
 console.log(data)
         $.ajax({
             url: "http://ip-api.com/json",
@@ -48,15 +48,41 @@ const apiKey = "505eb63b691b40d9b5f150200181311";
         url: weatherURL,
         success: function(data){
             showWeather(data)
-            let pos={
-                lat: data.location.lat,
-                    lng: data.location.lon
-            };
-            initMap(pos)
+            locate()
+            // let pos={
+            //     lat: data.location.lat,
+            //         lng: data.location.lon
+            // };
+            // initMap(pos)
         }
     })
     
 }
+function locate() {
+
+    let key = "AIzaSyAvJXppOn7Qu0Waom3aJRK1sigS0KKyVDY"
+    $.post(('https://www.googleapis.com/geolocation/v1/geolocate?key=' + key), function (data) {
+
+
+        console.log(data)
+            //  $.ajax({
+            //      url: "https://www.googleapis.com/geolocation/v1/geolocate?key="+key,
+            //      success: function (data) {
+            //          showWeather(data)
+                     let pos = data.location
+                     console.log(pos)
+                     initMap(pos)
+            //      }
+            //  })
+
+
+
+    })
+
+}
+
+
+
 
 
 //Making the map and putting it on the page. I tried jquery but I could not get the map to work right.
@@ -65,7 +91,7 @@ const apiKey = "505eb63b691b40d9b5f150200181311";
      
     map = new google.maps.Map(document.getElementById('map'), {
         center: pos,
-        zoom: 9
+        zoom: 17
     });
     
     // Create a marker and set its position.
