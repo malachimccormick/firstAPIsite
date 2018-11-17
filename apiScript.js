@@ -1,4 +1,5 @@
-//Getting the ip address location and using it to showcase the weather
+//Getting the ip address location and using it to showcase the weather 
+//This api is not 100% accurate, it does get close though
 
 function ipAddress(data) {
     $.get('http://ip-api.com/json', function (data) {
