@@ -1,30 +1,24 @@
 //Getting the ip address location and using it to showcase the weather
 
-// function ipAddress(data) {
-//     $.get('https://ipapi.co/json/', function (data) {
+function ipAddress(data) {
+    $.get('http://ip-api.com/json', function (data) {
 
 
-// console.log(data)
-//         $.ajax({
-//             url: "https://ipapi.co/json/",
-//                 success: function(data){ 
-//                     city = data.city;
-//                     locationCity = city;
-//                     region=data.region;
-//                     locationRegion=region;
-
-//                     latitude = data.latitude;
-//                     longitude = data.longitude;
-//                     console.log(latitude)
-//                     getWeather(city,region)
-//                     initMap(latitude, longitude)
-//                 }
-//         })
+console.log(data)
+        $.ajax({
+            url: "http://ip-api.com/json",
+                success: function(data){ 
+                    city = data.city;
+                       region = data.regionName 
+                     getWeather(city,region)
+                    
+               }
+        })
         
-//     })
+    })
     
-// }
-// ipAddress()
+}
+ipAddress()
 
 
 
@@ -32,8 +26,8 @@
 // then passes it's data to the map feature
 
 const apiKey = "505eb63b691b40d9b5f150200181311";
-    function getWeather() {
-        const weatherURL = "https://api.apixu.com/v1/current.json?key=" + apiKey + "&q=killeen,texas";
+    function getWeather(city,region) {
+        const weatherURL = "https://api.apixu.com/v1/current.json?key=" + apiKey + "&q="+ city + "," + region;
             
     function showWeather(data) {
         console.log(data)
@@ -62,7 +56,9 @@ const apiKey = "505eb63b691b40d9b5f150200181311";
     })
     
 }
-getWeather()
+
+
+//Making the map and putting it on the page. I tried jquery but I could not get the map to work right.
     let map;
     function initMap(pos) {
      
