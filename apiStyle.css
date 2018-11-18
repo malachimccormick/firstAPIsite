@@ -37,6 +37,26 @@ body, html{
     height: 405px;
     width: 50%;
 }
+#coords{
+        margin: auto;
+        text-align: center;
+}
+input{
+    
+    height: 25px;
+    flex-direction: column
+}
+#submit{
+    height: 30px;
+    text-align: center;
+    font-size: 15px;
+}
+#submit:hover{
+    background-color: rgb(89, 196, 89);
+    color: black;
+    
+    
+}
 .container-fluid{
     display: flex;
     justify-content: center;

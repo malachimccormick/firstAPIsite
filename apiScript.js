@@ -13,15 +13,11 @@ console.log(data)
                        region = data.regionName 
                      getWeather(city,region)
                     
-               }
+            }
         })
-        
     })
-    
 }
 ipAddress()
-
-
 
 // The weather part gets the city from the IP address finder and that gives you weather data 
 // then passes it's data to the map feature
@@ -42,62 +38,50 @@ const apiKey = "505eb63b691b40d9b5f150200181311";
                     $("#weather").html(condition)
                         $("#conditionPicture").attr('src', conditionPic)
                             $("#temp").html("The current teperature is " + temp + " degrees fahrenheit")
-        
     }
     $.ajax({
         url: weatherURL,
-        success: function(data){
-            showWeather(data)
-            locate()
-            // let pos={
-            //     lat: data.location.lat,
-            //         lng: data.location.lon
-            // };
-            // initMap(pos)
+            success: function(data){
+                showWeather(data)
+                    locate()
+         
         }
     })
     
 }
+
+//This gets the lat and lng from the API and loads it up.
 function locate() {
 
     let key = "AIzaSyAvJXppOn7Qu0Waom3aJRK1sigS0KKyVDY"
-    $.post(('https://www.googleapis.com/geolocation/v1/geolocate?key=' + key), function (data) {
-
-
-        console.log(data)
-            //  $.ajax({
-            //      url: "https://www.googleapis.com/geolocation/v1/geolocate?key="+key,
-            //      success: function (data) {
-            //          showWeather(data)
-                     let pos = data.location
-                     console.log(pos)
-                     initMap(pos)
-            //      }
-            //  })
-
-
-
+        $.post(('https://www.googleapis.com/geolocation/v1/geolocate?key=' + key), function (data) {
+            console.log(data)
+                let pos = data.location
+                    console.log(pos)
+                        initMap(pos)
     })
 
 }
 
-
-
-
-
-//Making the map and putting it on the page. I tried jquery but I could not get the map to work right.
+//Making the map and putting it on the page. I tried jquery in the map var but I could not get the map to work right.
     let map;
+    //Click function added so you can enter your own coordinates.
+        $("#submit").click(function(){
+            pos={lat:Number($("#latitude").val()),lng: Number($("#longitude").val())};
+                console.log(pos)
+        initMap(pos)
+    })
     function initMap(pos) {
      
     map = new google.maps.Map(document.getElementById('map'), {
         center: pos,
-        zoom: 17
+            zoom: 17
     });
     
     // Create a marker and set its position.
      marker = new google.maps.Marker({
         map: map,
-        position: pos,
-        title: 'Hello World!'
+            position: pos,
+                title: 'Hello World!'
     });
 }
