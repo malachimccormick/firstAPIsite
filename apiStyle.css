@@ -3,68 +3,92 @@ body, html{
     background-color: whitesmoke;
     height: 100%;
 }
+
 .jumbotron{
     background-image: url(../apiSite/googleView.jpg);
-     background-position: 0% 25%;
-     background-size: 100% 100%;
-     background-repeat: no-repeat;
-     color: white;
-     text-shadow: rgb(58, 57, 57) 0.3em 0.3em 0.3em;
-     margin-bottom: 0px;
-     height: 43%;
+    background-position: 0% 25%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: rgb(58, 57, 57) 0.3em 0.3em 0.3em;
+    margin-bottom: 0px;
+    height: 43%;
 }
+
 .display-4{
     margin-left:-30px;
     margin-top: -60px;
     border-bottom: 2px;
     position: relative;
 }
+
 .lead{
     margin-top: -10px;
     
 }
+
 .ipAddress{
     margin-top: -15px;
+    font-size: 11pt;
     
 }
+
 .mapContainer{
     display: flex;
     justify-content: center;
     background-color: aliceblue
 }
+
 #map{
     border: 2px black;
     height: 405px;
     width: 50%;
 }
+
 #coords{
-        margin: auto;
-        text-align: center;
+    margin: auto;
+    text-align: center;
 }
-input{
-    
-    height: 25px;
-    flex-direction: column
+
+#input_address{
+    width: 410px;
+    height: 30px;
+    flex-direction: column;
+    border-color:#FFC36D;
 }
+
+#input_address:focus{
+outline: none;
+}
+
 #submit{
     height: 30px;
     text-align: center;
     font-size: 15px;
+    border-radius: 15%;
+    margin-top: 5px;
 }
+
+#submit:focus{
+    outline: none;
+}
+
 #submit:hover{
     background-color: rgb(89, 196, 89);
     color: black;
-    
-    
 }
+
+#address{
+    float: left;
+    text-decoration: underline;
+}
+
 .container-fluid{
     display: flex;
     justify-content: center;
-    
     background-color:#94A9BE;
     color: white;
     text-shadow: rgb(73, 72, 72) 0.3em 0.3em 0.3em;
-    font-size: x-small;
-    
+    font-size: x-small;  
 }
 
