@@ -112,13 +112,15 @@ function initMap(pos) {
     //Create the map
     map = new google.maps.Map(document.getElementById('map'), {
         center: pos,
-        zoom: 17
+        zoom: 17,
+        mapTypeId: "satellite"
     });
-
+    map.setTilt(45);
     // Create a marker and set its position.
     marker = new google.maps.Marker({
         map: map,
         position: pos,
+        mapTypeId:"satellite",
         title: 'Hello World!'
     });
 }
