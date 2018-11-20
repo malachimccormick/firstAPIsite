@@ -1,67 +1,72 @@
-
-body, html{
+body,
+html {
     background-color: whitesmoke;
     height: 100%;
 }
 
-.jumbotron{
-    background-image: url(../apiSite/googleView.jpg);
+.jumbotron {
+    background-image: url(./googleView.jpg);
     background-position: 0% 25%;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     color: white;
+    font-family: pt sans narrow;
     text-shadow: rgb(58, 57, 57) 0.3em 0.3em 0.3em;
     margin-bottom: 0px;
     height: 43%;
 }
 
-.display-4{
-    margin-left:-30px;
+.display-4 {
+    margin-left: -30px;
     margin-top: -60px;
     border-bottom: 2px;
     position: relative;
+    font-size: 80pt;
 }
 
-.lead{
+.lead {
     margin-top: -10px;
-    
+    font-size: 20pt;
+
 }
 
-.ipAddress{
+.ipAddress {
     margin-top: -15px;
-    font-size: 11pt;
-    
+    font-size: 12pt;
+
 }
 
-.mapContainer{
+.mapContainer {
     display: flex;
     justify-content: center;
-    background-color: aliceblue
+    background-color: whitesmoke;
 }
 
-#map{
-    border: 2px black;
+#map {
+    border-left: 2px solid black;
     height: 405px;
     width: 50%;
 }
 
-#coords{
+#coords {
     margin: auto;
     text-align: center;
+
 }
 
-#input_address{
+#input_address {
     width: 410px;
     height: 30px;
     flex-direction: column;
-    border-color:#FFC36D;
+    border-color: #FFC36D;
 }
 
-#input_address:focus{
-outline: none;
+#input_address:focus {
+    outline: none;
+    margin-top: -15px;
 }
 
-#submit{
+#submit {
     height: 30px;
     text-align: center;
     font-size: 15px;
@@ -69,26 +74,37 @@ outline: none;
     margin-top: 5px;
 }
 
-#submit:focus{
+#submit:focus {
     outline: none;
 }
 
-#submit:hover{
+#submit:hover {
     background-color: rgb(89, 196, 89);
     color: black;
 }
 
-#address{
-    float: left;
+#address {
+    /* float: left; */
     text-decoration: underline;
+    text-align: center;
 }
 
-.container-fluid{
+.container-fluid {
     display: flex;
     justify-content: center;
-    background-color:#94A9BE;
+    background-color: #94A9BE;
     color: white;
     text-shadow: rgb(73, 72, 72) 0.3em 0.3em 0.3em;
-    font-size: x-small;  
+    font-size: small;
 }
 
+#foundWeather {
+    font-family: comfortaa;
+
+    font-weight: bolder;
+    font-size: 14pt;
+}
+
+#newConditionPic {
+    margin-bottom: 300px;
+}
