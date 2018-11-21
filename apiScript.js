@@ -1,8 +1,9 @@
-//$(document.ready(function(){}) not used because the script can go ahead and run as it pleases 
 
+
+
+$(document).ready(ipAddress)
 //Getting the ip address location and using it to showcase the weather 
 //This api is not 100% accurate when it comes to location, it does get close though
-
 function ipAddress(data) {
     $.get('http://ip-api.com/json', function (data) {
         ipAddress = data.query
@@ -19,7 +20,7 @@ function ipAddress(data) {
         })
     })
 }
-ipAddress()
+
 
 // The weather part gets the city from the IP address finder and that gives you weather data 
 // then passes it's data to the map feature
@@ -77,44 +78,43 @@ $("#submit").click(function () {
     console.log(address)
 
     $.get(('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=' + key), function (data) {
-        console.log(data)
+        
 
         if ((data.results[0].address_components).length == 8){
-            newCity = data.results[0].address_components[2].long_name
-            newRegion = data.results[0].address_components[4].long_name
-            pos = data.results[
-                0].geometry.location 
+            newCity = data.results[0].address_components[3].long_name
+            newRegion = data.results[0].address_components[5].long_name
+           
         } else if ((data.results[0].address_components).length == 4) {
             newCity = data.results[0].address_components[0].long_name
             newRegion = data.results[0].address_components[2].long_name
-            pos = data.results[
-                0].geometry.location
-            // initMap(pos)
+            
         } else if ((data.results[0].address_components).length == 2) {
             newCity = data.results[0].address_components[0].long_name
             newRegion = data.results[0].address_components[1].long_name
             pos = data.results[0].geometry.location
-            // initMap(pos)
+            
         } else {
             newCity = data.results[0].address_components[3].long_name
             newRegion = data.results[0].address_components[5].long_name
-            pos = data.results[
-                0].geometry.location
+          
 
-        }
-
-        initMap(pos)
+            }
+        pos = data.results[
+            0].geometry.location 
+        console.log(data)
+        initMap(pos,address)
         newWeather(newCity, newRegion)
     })
 })
 
-function initMap(pos) {
+function initMap(pos,address) {
     //Create the map
     map = new google.maps.Map(document.getElementById('map'), {
         center: pos,
-        zoom: 17,
+        zoom: 18,
         mapTypeId: "satellite"
     });
+    infowindow = new google.maps.InfoWindow();
     map.setTilt(45);
     // Create a marker and set its position.
     marker = new google.maps.Marker({
@@ -122,6 +122,11 @@ function initMap(pos) {
         position: pos,
         mapTypeId:"satellite",
         title: 'Hello World!'
+    });
+    google.maps.event.addListener(marker, 'click', function (data) {
+        console.log(data)
+        infowindow.setContent("Here you are!!");
+        infowindow.open(map, this);
     });
 }
 
