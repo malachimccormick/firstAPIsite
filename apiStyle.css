@@ -88,6 +88,9 @@ html {
     text-decoration: underline;
     text-align: center;
 }
+#nearby{
+    width:100%
+}
 
 .container-fluid {
     display: flex;

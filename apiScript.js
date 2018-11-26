@@ -99,15 +99,28 @@ $("#submit").click(function () {
           
 
             }
+        lat = data.results[0].geometry.location.lat
+        lng = data.results[0].geometry.location.lng
         pos = data.results[
             0].geometry.location 
         console.log(data)
-        initMap(pos,address)
+        initMap(pos,)
         newWeather(newCity, newRegion)
+        nearby(lat, lng)
     })
-})
+    function nearby(lat, lng) {
+        $.getJSON(("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lng + "&radius=1500&type=restaurant&key=" + key), function(data) {
+            console.log(data)
+            place1 = data.results[0].name
 
-function initMap(pos,address) {
+
+            $("#place1").html("The closest place to eat is " + place1)
+
+
+        })
+    }
+    })
+function initMap(pos) {
     //Create the map
     map = new google.maps.Map(document.getElementById('map'), {
         center: pos,
